@@ -1,0 +1,26 @@
+﻿@model SiteNews.Models.NewsModel
+@using Newtonsoft.Json
+
+@*@{
+    protected int MyValue { get { return @Model.ID; } }
+}*@
+
+<script>
+    @*var id = @Model.ID;*@
+    var title = "<%=@Model.Title %>"
+</script>
+@Html.ActionLink(@Model.Title, "PrintNews", "News", new {model = Model.ID}, new { @class="h1" })
+@Html.Hidden("idNew", @Model.ID, new { @id = "IDNEWS", value =  @Model.ID} );
+    <h1>@Model.Author</h1>
+    <h2>@Model.CreateDate</h2>
+
+    @*<input type="hidden" value="@Model.ID" id="IDNEWS" />*@
+    <input type="button" value="+" onclick="voteUp(this.title)" />
+    <label id="id">@Model.Raiting</label>
+    <input type="button" value="-" onclick="voteDown(title)" />
+    @*<div>@Html.Raw(WebUtility.HtmlDecode(@Model.Text))</div>*@
+
+<script>
+    var data = @Html.Raw(JsonConvert.SerializeObject(this.Model))
+</script>
+

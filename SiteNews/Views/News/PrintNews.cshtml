@@ -1,0 +1,8 @@
+﻿@model SiteNews.Models.NewsModel
+
+@{
+    ViewBag.Title = "PrintNews";
+}
+
+@Html.Raw(@Model.Text)
+@Model.CreateDate

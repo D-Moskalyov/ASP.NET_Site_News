@@ -1,0 +1,1 @@
+config.filebrowserUploadUrl = 'http://localhost/test/editor/upload.php';

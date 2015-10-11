@@ -1,0 +1,37 @@
+﻿@model SiteNews.Models.NewsModel
+
+@{
+    ViewBag.Title = "Пишем статью";
+}
+<script src="/Scripts/ckeditor/ckeditor.js"></script>
+<script src="/Scripts/ckeditor/adapters/jquery.js"></script>
+
+<h2>@ViewBag.Title</h2>
+
+<!--<textarea id="my-textarea"></textarea>
+<script>
+    $(function () {
+        $('#my-textarea').ckeditor();
+        CKFinder.setupCKEditor(null, '/ckfinder/');
+    });
+</script>-->
+
+
+@using (Html.BeginForm()) {
+    <!--<textarea name="text"></textarea>-->
+    @Html.TextBoxFor(m => m.Title);
+    @Html.TextAreaFor(m => m.Text, new { @class="ckeditor", @name="editor1" })
+    <input type="submit" value="Опубликовать" />
+}
+
+<!--<script>
+    CKEDITOR.replace("text");
+</script>-->
+<!--<script>
+    $(function () {
+        $('#my-textarea').ckeditor();
+    });
+</script>-->
+
+
+

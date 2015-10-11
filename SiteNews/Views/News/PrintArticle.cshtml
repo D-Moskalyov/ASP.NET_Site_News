@@ -1,0 +1,50 @@
+﻿@model SiteNews.Models.ArticleModel
+
+@{
+    ViewBag.Title = "PrintArticle";
+}
+
+@{
+    //SiteNews.Models.ArticleModel newArticleModel = new SiteNews.Models.ArticleModel(@Model.News, @Model.Comments);
+    
+    //newArticleModel.News = new SiteNews.Models.NewsModel(@Model);
+}
+
+
+@Html.Raw(@Model.News.Text)
+@Model.News.CreateDate
+
+
+    
+@foreach (var item in @Model.Comments)
+{
+    @item.UserName;
+    @item.CreateDate;
+    @item.Comment;
+    
+}
+@*@{Html.RenderPartial("~Home/Test1", Model);}*@
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Test1Model</legend>
+    <!--<textarea name="text"></textarea>-->
+    @*@Html.TextAreaFor(m => @Model.newComment)*@
+    @Html.TextAreaFor(m => @Model.newComment);
+    
+    @Html.HiddenFor(m => @Model.News)
+    @Html.HiddenFor(m => @Model.Comments)
+    @Html.HiddenFor(m => @Model.newsID)
+    
+    <p><input type="submit" value="Прокомментировать" /></p>
+        </fieldset>
+}
+
+
+
+<!--section Scripts {
+    Scripts.Render("~/bundles/jqueryval")
+}-->

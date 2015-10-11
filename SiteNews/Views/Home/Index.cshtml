@@ -1,0 +1,50 @@
+﻿@model SiteNews.Models.ListNewsModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    SiteNews.Models.ListNewsModel myListNewsModel = new SiteNews.Models.ListNewsModel();
+}
+
+<h2>@ViewBag.Message</h2>
+@for (int i = 0; i < Model.listNews.Count; i++)
+{
+    <div id="articleNews">
+        @Html.Partial("_ArticlePartial", Model.listNews[i]);
+        <hr />
+    </div>
+    //myListNewsModel.listNews.Add(Model.listNews[i]);
+    //using (Html.BeginForm("PrintNews", "News", FormMethod.Post, new {model = Model.listNews[i]}, new { id = @Model.listNews[i].ID }))
+    //{
+        
+        //<a href="javascript:document.getElementById('@Model.listNews[i].ID').submit()">@Model.listNews[i].Author</a>
+    //}
+    
+    //@Html.ActionLink(@Model.listNews[i].Author, "PrintNews", "News", new {model = Model.listNews[i]}, new { @class="h1" })
+    <!--<h1>Model.listNews[i].Author</h1>
+    <h2>Model.listNews[i].Title</h2>
+    <div>Model.listNews[i].Text</div>-->
+}
+
+
+<script type="text/javascript">
+
+    $(document).on("click", ".button", function () {
+        alert("Button clicked");
+    }); 
+    function voteUp(f) {
+        //var id = data.Title;
+        //var myVal = '<%= IDNEWS %>'
+        alert(f)
+        //alert(f);
+        @*var data = @Html.Raw(Json.Encode(Model))*@
+        //alert((document.getElementById("IDNEWS")).valueOf())
+        //document.getElementById("IDNEWS").textContent = f;
+        //alert(data.Raiting);
+    }
+    function voteDown(title1) {
+        alert(title1)
+    }
+</script>

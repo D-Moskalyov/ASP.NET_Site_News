@@ -1,0 +1,40 @@
+﻿@model SiteNews.Models.Test1Model
+
+@{
+    ViewBag.Title = "Test1";
+}
+
+<h2>Test1</h2>
+
+@*@{
+    SiteNews.Models.Test1Model newModel = new SiteNews.Models.Test1Model();
+}*@
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @*Html.ValueFor(m => newModel.t)*@
+    <fieldset>
+        <legend>Test1Model</legend>
+        @*Html.TextBoxFor(m => @Model.someSrt)*@
+        @*Html.EditorFor(m => newModel.someSrt)*@
+        @*@Html.HiddenFor(m => newModel.t)*@
+        @*Html.EditorForModel()*@
+        @Html.EditorFor(m => @Model.someSrt)
+        <!--<input type="text" name="someSrt" value="@Model.someSrt" />-->
+        <input type="hidden" name="t" value="@Model.t" />
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<!--<link href="~/Scripts/jquery.unobtrusive*" rel="alternate"/>
+<link href="~/Scripts/jquery.validate*" rel="alternate"/>
+section Scripts {
+    Scripts.Render("~/bundles/jqueryval")
+}-->
